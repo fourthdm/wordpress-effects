@@ -1,0 +1,42 @@
+.container{
+    background-color:#ffff ;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.container:hover {
+    background-color: #FFFF;
+}
+
+
+.heading h2 {
+    color: #000 !important;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.container:hover .heading h2 {
+    color: #F5C11B !important;
+}
+
+
+.icon svg {
+    fill: #155B9C !important;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.container:hover .icon svg {
+    fill: #F5C11B !important;
+}
+
+
+.text {
+    color: #000 !important;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.container:hover .text {
+    color: #FFFFFF !important;
+}
