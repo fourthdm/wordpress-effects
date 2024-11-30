@@ -1,0 +1,147 @@
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+jQuery(function($){
+$('.clicktoshow').each(function(i){
+$(this).click(function(event){ 
+event.preventDefault();
+$('.showclick').eq(i).toggle();
+$('.clicktoshow');
+}); });
+}); });
+</script>
+<style>
+.clicktoshow{
+cursor: pointer;
+}
+.showclick{
+display: none;
+}
+</style>
+
+<html>
+
+<div class="clicktoshow">Click to Toggle Content</div>
+<div class="showclick">This is the content to show and hide with animation.</div>
+
+<style>
+.clicktoshow {
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    display: inline-block;
+    position: relative;
+    transition: transform 0.5s ease;
+}
+
+.showclick {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.slide-out-left {
+    transform: translateX(-100px); /* Moves button to the left */
+}
+
+.slide-in-right {
+    display: block;
+    opacity: 1;
+    transform: translateX(100px); /* Moves content to the right */
+}
+
+.hidden {
+    opacity: 0;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    jQuery(function($) {
+        $('.clicktoshow').each(function(i) {
+            $(this).click(function(event) { 
+                event.preventDefault();
+                var $button = $(this);
+                var $content = $('.showclick').eq(i);
+
+                $button.toggleClass('slide-out-left');
+                $content.toggleClass('slide-in-right hidden');
+            });
+        });
+    });
+});
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+expand image 
+
+
+
+selector .elementor-widget{
+    width: 400px;
+    opacity: 0;
+    transition: all 0.5s linear;
+}
+selector .elementor-container{
+    flex-wrap: nowrap;
+}
+selector .elementor-widget-wrap{
+    flex-direction: column;
+    transition: all 0.3s linear !important;
+}
+selector .elementor-column{
+    min-width: 1px;
+    transition: all 0.5s linear;
+    overflow: hidden;
+}
+selector .elementor-column:hover{
+    width: 100%;
+}
+selector .elementor-column:hover .elementor-widget{
+    opacity: 1;
+}
+
+@media (max-width:1024px){
+selector .elementor-widget{
+    width: 300px;
+} 
+}
+
+@media (max-width:767px){
+selector .elementor-widget-wrap{
+    height: 300px;
+}
+selector .elementor-column:hover .elementor-widget-wrap{
+    height: 380px;
+}
+selector .elementor-container{
+    flex-wrap: wrap;
+}
+}
+
+
+
+
+/* Expanding Image on Hover Effect */
+.expand-on-hover {
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+.expand-on-hover:hover {
+    width: 80%;
+    transition: .2s ease-in;
+    /* Adjust scale for how much to expand */
+}
