@@ -1,0 +1,38 @@
+
+
+.bttn {
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+  -webkit-animation: pulse 1s infinite;
+  animation: pulse 1s infinite;
+  border-radius: 40px;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(3,59,114,0.8);
+  }
+  70% {
+      box-shadow: 0 0 0 10px rgba(3,59,114,0.4);
+  }
+  100% {
+      box-shadow: 0 0 0 0 rgba(3,59,114,0.8);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(3,59,114,0.7);
+  }
+  70% {
+      box-shadow: 0 0 0 10px rgba(3,59,114,0);
+  }
+  100% {
+      box-shadow: 0 0 0 0 rgba(3,59,114,0);
+  }
+}
+
+.texts{
+	text-align:center;
+	margin-left:150px;
+	
+}
