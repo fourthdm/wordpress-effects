@@ -1,0 +1,90 @@
+    <style>
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: #F8BD4B;
+        }
+    </style>
+    <div class="container">
+        <div id="popup-overlay" class="popup-overlay" style="display: none;">
+            <div class="popup-content">
+                <div class="text-end">
+                    <span id="close-popup"><i class="fa-solid fa-xmark"></i></span>
+                </div>
+                <h2>Enquiry Form</h2>
+                <form id="enquiry-form">
+<form id="enquiry-form" method="POST" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
+    <input type="hidden" name="action" value="enquiry_form">
+
+                    <label for="name">Name:</label>
+                    <br><input type="text" id="name" name="name" required />
+                    <br><br>
+
+                    <label for="email">Email:</label>
+                    <br><input type="email" id="email" name="email" required />
+                    <br><br>
+
+                    <label for="message">Message:</label>
+                    <br><textarea id="message" name="message" required></textarea>
+                    <br><br>
+
+                    <button class="btn btn-success" type="submit">Submit</button>
+                    <button class="btn " style="margin-left: 5%; background-color:#F8BD4B;border:1px solid #F8BD4B " type="button"
+                        id="close-popup-btn">Close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const popupOverlay = document.getElementById('popup-overlay');
+            const closePopupBtn = document.getElementById('close-popup-btn');
+            const closeIcon = document.getElementById('close-popup');
+            const form = document.getElementById('enquiry-form');
+
+            function togglePopup() {
+                if (popupOverlay.style.display === 'none' || popupOverlay.style.display === '') {
+                    popupOverlay.style.display = 'flex'; // Show popup
+                } else {
+                    popupOverlay.style.display = 'none'; // Hide popup
+                }
+            }
+
+            setInterval(togglePopup, 2000);
+
+            function closePopup() {
+                popupOverlay.style.display = 'none';
+            }
+
+            closePopupBtn.addEventListener('click', closePopup);
+            closeIcon.addEventListener('click', closePopup);
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const formData = new FormData(form);
+                console.log('Form submitted:', {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    message: formData.get('message')
+                });
+                closePopup();
+            });
+        });
+    </script>
+
