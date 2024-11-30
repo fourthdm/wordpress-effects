@@ -1,0 +1,149 @@
+
+zoom effect with image magnifier code 
+
+<div class="magnifier-container">
+    <img src="your-image.jpg" alt="Magnifiable Image" id="magnifier-image">
+</div>
+
+<style>
+.magnifier-container {
+    position: relative;
+    overflow: hidden;
+}
+
+#magnifier-image {
+    width: 50%;
+    height: auto;
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+}
+
+#magnifier-image:hover {
+    transform: scale(2); /* Adjust scale for zoom level */
+    cursor: zoom-out;
+}
+
+</style>
+
+
+<script>
+document.querySelector('.magnifier-container').addEventListener('mousemove', function (e) {
+    const img = document.getElementById('magnifier-image');
+    const { left, top, width, height } = img.getBoundingClientRect();
+    const x = ((e.clientX - left) / width) * 50;
+    const y = ((e.clientY - top) / height) * 50;
+
+    img.style.transformOrigin = `${x}% ${y}%`;
+    img.style.transform = 'scale(2)';
+});
+
+document.querySelector('.magnifier-container').addEventListener('mouseleave', function () {
+    const img = document.getElementById('magnifier-image');
+    img.style.transform = 'scale(1)';
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+another image zoom code with zoom button
+
+
+<div class="magnifier-container">
+    <img src="https://naturesatva.fourthdm.in/wp-content/uploads/2024/11/Amla-Candy.jpg" id="magnifier-image" alt="Zoomable Image">
+    <div class="zoom-controls">
+        <button id="zoom-in">+</button>
+        <button id="zoom-out">-</button>
+    </div>
+</div>
+
+
+
+<style>
+.magnifier-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 300px; /* Set the container size */
+    margin: auto;
+}
+
+#magnifier-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+    transform-origin: center;
+}
+
+.zoom-controls {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.zoom-controls button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.zoom-controls button:hover {
+    background-color: #2980b9;
+}
+</style>
+
+<script>
+const image = document.getElementById('magnifier-image');
+let scale = 1;
+
+document.getElementById('zoom-in').addEventListener('click', () => {
+    scale += 0.1;
+    image.style.transform = `scale(${scale})`;
+});
+
+document.getElementById('zoom-out').addEventListener('click', () => {
+    if (scale > 1) {
+        scale -= 0.1;
+        image.style.transform = `scale(${scale})`;
+    }
+});
+
+</script>
+
+
+
+
+
+
+
+.magnifier-container {
+    position: relative;
+    
+}
+
+#magnifier-image {
+    width: 100%;
+    height: auto;
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+}
+
+#magnifier-image:hover {
+    transform: scale(0.2); /* Adjust scale for zoom level */
+    cursor: zoom-out;
+}
